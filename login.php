@@ -20,8 +20,12 @@
           <span id="password-error" class="error-message"></span>
         </div>
         <input type="submit" value="zaloguj się">
+        <input type="reset" value="Reset">
       </form>
     </div>
+    <?php
+    //TODO: skrypt do logowania
+    ?>
     <script src="login.js"></script>
   </body>
 </html>

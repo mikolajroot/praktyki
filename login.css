@@ -54,3 +54,11 @@
   .error-message {
     color: red;
   }
+  input[type="reset"] {
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 16px;
+    cursor: pointer;
+  }
