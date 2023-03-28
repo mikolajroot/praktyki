@@ -21,5 +21,12 @@ function validateForm() {
 
   return isValid;
 }
+const resetButton = document.querySelector('input[type="reset"]');
+const errorMessages = document.querySelectorAll('.error-message');
 
+resetButton.addEventListener('click', () => {
+  errorMessages.forEach(errorMessage => {
+    errorMessage.textContent = '';
+  });
+});
   

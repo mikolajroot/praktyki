@@ -20,7 +20,7 @@
           <span id="password-error" class="error-message"></span>
         </div>
         <input type="submit" value="zaloguj się">
-        <input type="reset" value="Reset">
+        <input type="reset" value="Reset" id="reset">
       </form>
     </div>
     <?php
