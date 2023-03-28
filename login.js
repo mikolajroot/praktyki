@@ -1,3 +1,4 @@
+//skrypt do walidacji formularza logowania
 function validateForm() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
@@ -21,6 +22,7 @@ function validateForm() {
 
   return isValid;
 }
+//skrypt do usunięcia błędów po kliknięciu przycisku reset
 const resetButton = document.querySelector('input[type="reset"]');
 const errorMessages = document.querySelectorAll('.error-message');
 
