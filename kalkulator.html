@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Praktyki</title>
+    <title>Kalkulator IP</title>
     <link rel="stylesheet" href="style.css">
+    <script src="kalkulator.js"></script>
   </head>
   <body>
     <header>
@@ -11,13 +12,6 @@
       <nav>
         <ul>
           <li><a href="kalkulator.html" target="_self">Ip calculator</a></li>
-          <li><a href="#" target="_self">Menu 2</a></li>
-          <li><a href="#" target="_self">Menu 3</a></li>
-          <li><a href="#" target="_self">Menu 4</a></li>
-          <li><a href="#" target="_self">Menu 5</a></li>
-          <li><a href="#" target="_self">Menu 6</a></li>
-          <li><a href="#" target="_self">Menu 7</a></li>
-          <li><a href="#" target="_self">Menu 8</a></li>
         </ul>
       </nav>
       <div class="user-actions">
@@ -26,7 +20,19 @@
       </div>
     </header>
     <main>
-      <p><img src="sieci.jpg" alt="sieci.jpg"></p>
+        <form>
+            <label for="ip">Adres IP:</label>
+            <input type="text" id="ip" name="ip"><br>
+      
+            <label for="mask">Maska sieciowa:</label>
+            <input type="text" id="mask" name="mask"><br>
+      
+            <input type="button" value="Oblicz" onclick="calculate()">
+          </form>
+      
+          <p>Wynik:</p>
+          <p id="result"></p>
+      
     </main>
     <footer>
       <p>Copyright © 2023</p>

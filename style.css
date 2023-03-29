@@ -1,140 +1,144 @@
 /* index.html */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  h1 a{
-    text-decoration: none;
-    color: #fff;
-  }
-  header {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 100%;
-    justify-content: space-around; 
-  }
-  
-  nav ul li {
-    margin-right: 30px;
-  }
-  
-  nav ul li:last-child {
-    margin-right: 0;
-  }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    position: relative;
-  }
-  
-  nav ul li a::before {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: #fff;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  nav ul li a:hover::before,
-  nav ul li a:focus::before {
-    transform: scaleX(1);
-  }
-  
-  .user-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .user-actions a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 10px;
-    position: relative;
-  }
-  
-  .user-actions a::before {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: #fff;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .user-actions a:hover::before,
-  .user-actions a:focus::before {
-    transform: scaleX(1);
-  }
-  
-  .main-title {
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 2rem;
-    color: #333;
-    animation: fadein 1s;
-  }
-  
-  @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  
-  .form-container {
-    width: 400px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    animation: slideup 1s;
-  }
-  
-  @keyframes slideup {
-    from { transform: translateY(100px); opacity: 0; }
-    to   { transform: translateY(0); opacity: 1; }
-  }
-  
-  button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #fff;
-    color: #333;
-  }
-  footer {
-    background-color: #ccc;
-    color: #333;
-    padding: 10px 20px;
-    text-align: center;
-  }
-  main p{
-    text-align: center;
-    font-size: 1.5rem;
-    color: #333;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+h1 a {
+  text-decoration: none;
+  color: #fff;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+nav ul li {
+  margin-right: 30px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover::before,
+nav ul li a:focus::before {
+  transform: scaleX(1);
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.user-actions a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  position: relative;
+}
+
+.user-actions a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.user-actions a:hover::before,
+.user-actions a:focus::before {
+  transform: scaleX(1);
+}
+
+.main-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  color: #333;
+  animation: fadein 1s;
+}
+
+main {
+  max-width: 800px; /* set a maximum width for the main section */
+  margin: 0 auto; /* center the main section horizontally */
+  padding: 20px; /* add some padding to the main section */
+}
+
+form {
+  display: flex; /* use flexbox to align form elements horizontally */
+  flex-direction: column; /* set the direction of the flex container to column */
+  align-items: flex-start; /* align form elements to the left side */
+}
+
+label {
+  margin-bottom: 10px; /* add some space between labels and inputs */
+}
+
+input[type="text"] {
+  padding: 5px; /* add some padding to the text inputs */
+  border-radius: 3px; /* round the corners of the text inputs */
+  border: 1px solid #ccc; /* add a border to the text inputs */
+}
+
+input[type="button"] {
+  background-color: #333;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+input[type="button"]:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+p {
+  margin-top: 20px; /* add some space between paragraphs */
+  font-size: 16px; /* set the font size of the paragraphs */
+}
+footer {
+  background-color: #ccc;
+  color: #333;
+  padding: 10px 20px;
+  text-align: center;
+}
