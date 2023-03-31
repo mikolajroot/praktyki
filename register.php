@@ -7,24 +7,24 @@
   </head>
   <body>
     <div class="form-container">
-      <h2>Zaloguj się</h2>
-      <form id="login-form" onsubmit="return validateForm()" action="login.php" method="get">
+      <h2>Zarejestruj się</h2>
+      <form id="login-form" onsubmit="return validateForm()" action="register>
         <div class="form-group">
           <label for="username">Nazwa użytkownika:</label>
-          <input type="text" id="username" name="username-login">
+          <input type="text" id="username" name="username-register">
           <span id="username-error" class="error-message"></span>
         </div>
         <div class="form-group">
           <label for="password">Hasło:</label>
-          <input type="password" id="password" name="password-login">
+          <input type="password" id="password" name="password-register">
           <span id="password-error" class="error-message"></span>
         </div>
-        <input type="submit" value="zaloguj się">
+        <input type="submit" value="zajerestruj się">
         <input type="reset" value="Reset" id="reset">
       </form>
     </div>
     <?php
-    //TODO: skrypt do logowania
+    //TODO: skrypt do rejestracji
     ?>
     <script src="login.js"></script>
   </body>
