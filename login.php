@@ -21,6 +21,7 @@
         </div>
         <input type="submit" value="zaloguj się">
         <input type="reset" value="Reset" id="reset">
+        <a href="register.php">zajerestruj się </a>
       </form>
     </div>
     <?php

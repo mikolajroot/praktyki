@@ -77,3 +77,24 @@ input[type="reset"]:hover {
 .error-message {
   color: red;
 }
+a{
+  margin: 20px 50px;
+}
+a:link{
+  color: #333;
+  background-color: transparent;
+
+}
+
+a:visited {
+  color: #333;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+a:active {
+  color: #333;
+  background-color: transparent;
+  text-decoration: underline;
+}
