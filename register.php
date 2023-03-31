@@ -8,7 +8,7 @@
   <body>
     <div class="form-container">
       <h2>Zarejestruj się</h2>
-      <form id="login-form" onsubmit="return validateForm()" action="register>
+      <form id="login-form" onsubmit="return validateForm()" action="register.php" method="get">
         <div class="form-group">
           <label for="username">Nazwa użytkownika:</label>
           <input type="text" id="username" name="username-register">
