@@ -95,25 +95,25 @@ nav ul li a:focus::before {
 }
 
 main {
-  max-width: 800px; /* set a maximum width for the main section */
-  margin: 0 auto; /* center the main section horizontally */
-  padding: 20px; /* add some padding to the main section */
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 20px; 
 }
 
 form {
-  display: flex; /* use flexbox to align form elements horizontally */
-  flex-direction: column; /* set the direction of the flex container to column */
-  align-items: flex-start; /* align form elements to the left side */
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
 }
 
 label {
-  margin-bottom: 10px; /* add some space between labels and inputs */
+  margin-bottom: 10px; 
 }
 
 input[type="text"] {
-  padding: 5px; /* add some padding to the text inputs */
-  border-radius: 3px; /* round the corners of the text inputs */
-  border: 1px solid #ccc; /* add a border to the text inputs */
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #ccc; 
 }
 
 input[type="button"] {
@@ -133,8 +133,8 @@ input[type="button"]:hover {
 }
 
 p {
-  margin-top: 20px; /* add some space between paragraphs */
-  font-size: 16px; /* set the font size of the paragraphs */
+  margin-top: 20px;
+  font-size: 16px; 
 }
 footer {
   background-color: #ccc;
