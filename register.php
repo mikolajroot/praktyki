@@ -32,6 +32,6 @@
     <?php
     //TODO: skrypt do rejestracji
     ?>
-    <script src="login.js"></script>
+    <script src="register.js"></script>
   </body>
 </html>
