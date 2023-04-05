@@ -95,8 +95,9 @@ nav ul li a:focus::before {
 }
 
 main {
-  max-width: 800px; 
-  padding: 20px; 
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 form {
