@@ -28,7 +28,6 @@ function validateForm() {
     }
     if (password !== passwordRepeat) {
         passwordRepeatError.textContent = "Hasła muszą być takie same";
-        passwordError.textContent = "Hasła muszą być takie same";
         isValid = false;
     }
   
