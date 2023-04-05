@@ -20,6 +20,11 @@
           <input type="password" id="password" name="password-register">
           <span id="password-error" class="error-message"></span>
         </div>
+        <div class="form-group">
+          <label for="password">Powtórz hasło:</label>
+          <input type="password" id="password-repeat" name="password-repeat">
+          <span id="password-repeat-error" class="error-message"></span>
+        </div>
         <input type="submit" value="zajerestruj się">
         <input type="reset" value="Reset" id="reset">
       </form>
