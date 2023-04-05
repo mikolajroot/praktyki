@@ -26,8 +26,11 @@ function validateForm() {
       passwordRepeatError.textContent = "Hasło nie może być puste";
       isValid = false;
     }
-    
-  
+    if (password !== passwordRepeat) {
+        passwordRepeatError.textContent = "Hasła muszą być takie same";
+        passwordError.textContent = "Hasła muszą być takie same";
+        isValid = false;
+    }
   
     return isValid;
   }
