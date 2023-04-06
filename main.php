@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['zalogowany'])){
+    header('Location: index.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +29,8 @@ session_start();
       </nav>
       <div class="user-actions">
         <?php
-          echo "<p>Witaj ". $_SESSION['user']." !</p>"
+          echo "<p>Witaj ". $_SESSION['user']." ! </p>";
+          echo "<p><a href='logout.php'>Wyloguj się</a></p>";
         ?>
       </div>
     </header>

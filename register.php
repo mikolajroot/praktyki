@@ -32,7 +32,7 @@ $sql = "INSERT INTO users (username, pass) VALUES ('$username', '$password')";
 
 if (mysqli_query($con, $sql)) {
   echo "User registered successfully.";
-  header("Location: login.html");
+  header("Location: index.php");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($con);
 }

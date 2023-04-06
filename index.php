@@ -1,5 +1,13 @@
+<?php
+session_start();
+
+if (isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany'] == true)) {
+    header('Location: main.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
-<html>
+<html lang="pl">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +27,12 @@
           <label for="password">Hasło:</label>
           <input type="password" id="password" name="password-login">
           <span id="password-error" class="error-message"></span>
+          <?php
+            if(isset($_SESSION['error'])){
+              echo $_SESSION['error'];
+              unset($_SESSION['error']);
+            }
+            ?>
         </div>
         <input type="submit" value="zaloguj się">
         <input type="reset" value="Reset" id="reset">
