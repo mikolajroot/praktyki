@@ -28,7 +28,7 @@ if ($password != $password_repeat) {
 // $password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
 // Insert the user into the database
-$sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+$sql = "INSERT INTO users (username, pass) VALUES ('$username', '$password')";
 
 if (mysqli_query($con, $sql)) {
   echo "User registered successfully.";

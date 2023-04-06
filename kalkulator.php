@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang-="pl">
   <head>
@@ -9,15 +12,16 @@
   </head>
   <body>
     <header>
-      <h1><a href="index.html" target="_self">INF.02</a></h1>
+      <h1><a href="main.php" target="_self">INF.02</a></h1>
       <nav>
         <ul>
-          <li><a href="kalkulator.html" target="_self">Ip calculator</a></li>
+          <li><a href="kalkulator.php" target="_self">Ip calculator</a></li>
         </ul>
       </nav>
       <div class="user-actions">
-        <a href="login.html" target="_self">Zaloguj się</a>
-        <a href="#" target="_self">Zarejestruj się</a>
+      <?php
+          echo "<p>Witaj ". $_SESSION['user']." !</p>"
+      ?>
       </div>
     </header>
     <main>
