@@ -36,7 +36,7 @@ if (isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany'] == true)) {
         </div>
         <input type="submit" value="zaloguj się">
         <input type="reset" value="Reset" id="reset">
-        <a href="register.html">zajerestruj się </a>
+        <a href="registerMain.php">zajerestruj się </a>
       </form>
     <script src="login.js"></script>
   </body>

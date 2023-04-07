@@ -1,21 +1,20 @@
 <?php
 session_start();
 
-if(!isset($_POST["username-login"]) || !isset($_POST["password-login"])){
+if (!isset($_POST["username-login"]) || !isset($_POST["password-login"])) {
     header("Location: index.php");
     exit();
 }
 
-$host = "localhost"; 
-$user = "root"; 
-$password = ""; 
-$database = "inf"; 
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "inf";
 
 $con = mysqli_connect($host, $user, $password, $database);
- if($con->connect_errno!=0){
-    echo "Error: ".$con->connect_errno;
- }
- else{
+if ($con->connect_errno != 0) {
+    echo "Error: " . $con->connect_errno;
+} else {
     $username = $_POST['username-login'];
     $password = $_POST['password-login'];
 
@@ -24,30 +23,38 @@ $con = mysqli_connect($host, $user, $password, $database);
 
     $sql = "SELECT * FROM users WHERE username='$username' AND pass='$password'";
 
-    if($result = @$con->query($sql)){
+    if ($result = @$con->query($sql)) {
         $ile_userow = $result->num_rows;
-        if($ile_userow>0){
-            $_SESSION['zalogowany'] = true;
+        if ($ile_userow > 0) {
+            if ($username == "admin" && $password == "admin") {
+                $_SESSION['admin'] = true;
+                $_SESSION['zalogowany'] = true;
 
-            $wiersz = $result->fetch_assoc();
-            $_SESSION['id'] = $wiersz['id'];
-            $_SESSION['user'] = $wiersz['username'];
+                $wiersz = $result->fetch_assoc();
+                $_SESSION['id'] = $wiersz['id'];
+                $_SESSION['user'] = $wiersz['username'];
 
 
-            $result->free_result();
-            header('Location: main.php');
+                $result->free_result();
+                header('Location: main.php');
+            } else {
+                $_SESSION['admin'] = false;
+                $_SESSION['zalogowany'] = true;
 
-            echo $user;
+                $wiersz = $result->fetch_assoc();
+                $_SESSION['id'] = $wiersz['id'];
+                $_SESSION['user'] = $wiersz['username'];
+
+
+                $result->free_result();
+                header('Location: main.php');
+            }
         } else {
 
-            $_SESSION['error'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
+            $_SESSION['error'] = '<script>alert("Nieprawidłowy login lub hasło")</script>';
             header('Location: index.php');
         }
     }
 
     $con->close();
- }
- 
- 
- 
- ?>
+}

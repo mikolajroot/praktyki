@@ -1,42 +1,50 @@
 <?php
-// Connect to the database
-$host = "localhost"; // replace with your host name
-$user = "root"; // replace with your database username
-$password = ""; // replace with your database password
-$database = "inf"; // replace with your database name
+session_start();
+$host = "localhost"; 
+$user = "root";
+$password = ""; 
+$database = "inf";
 
 $con = mysqli_connect($host, $user, $password, $database);
 
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  exit();
-}
+if(isset($_POST['username-register']) && isset($_POST['password-register']) && isset($_POST['password-repeat'])) {
 
-// Retrieve form data
-$username = $_POST['username-register'];
-$password = $_POST['password-register'];
-$password_repeat = $_POST['password-repeat'];
+  $username = $_POST['username-register'];
+  $password = $_POST['password-register'];
+  $passwordRepeat = $_POST['password-repeat'];
 
-// Check if password and password repeat match
-if ($password != $password_repeat) {
-  echo "Hasła nie pasują.";
-  exit();
-}
+  // Sprawdź czy nazwa użytkownika już istnieje
+  $checkUsernameQuery = "SELECT * FROM users WHERE username='$username'";
+  $checkUsernameResult = mysqli_query($con, $checkUsernameQuery);
 
-// Hash the password for security
-// $password_hashed = password_hash($password, PASSWORD_DEFAULT);
+  if(mysqli_num_rows($checkUsernameResult) > 0) {
+    // Jeżeli nazwa użytkownika istnieje, pokaż komunikat o błędzie
+    $_SESSION['usernameExist'] = true;
+    header("Location: registerMain.php");
+    exit();
+  }
 
-// Insert the user into the database
-$sql = "INSERT INTO users (username, pass) VALUES ('$username', '$password')";
+  // Jeśli nazwa użytkownika nie istnieje, kontynuuj rejestrację
+  if($password == $passwordRepeat) {
+    
 
-if (mysqli_query($con, $sql)) {
-  echo "User registered successfully.";
-  header("Location: index.php");
+    $insertQuery = "INSERT INTO users (username, pass) VALUES ('$username', '$password')";
+    $result = mysqli_query($con, $insertQuery);
+
+    if($result) {
+      // Registration successful, redirect to login page
+      header("Location: login.php?registration=success");
+      exit();
+    } else {
+      echo "Error: " . $insertQuery . "<br>" . mysqli_error($con);
+      exit();
+    }
+  } else {
+    echo "Hasła nie są zgodne!";
+    exit();
+  }
 } else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($con);
+  header("Location: login.php");
+  exit();
 }
-
-// Close the database connection
-mysqli_close($con);
 ?>
