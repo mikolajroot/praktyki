@@ -1,0 +1,173 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  h1 a {
+    text-decoration: none;
+    color: #fff;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  nav ul li {
+    margin-right: 30px;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  nav ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  nav ul li a:hover::before,
+  nav ul li a:focus::before {
+    transform: scaleX(1);
+  }
+  
+  .user-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-actions a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+    position: relative;
+  }
+  
+  .user-actions a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .user-actions a:hover::before,
+  .user-actions a:focus::before {
+    transform: scaleX(1);
+  }
+  
+  .main-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: #333;
+    animation: fadein 1s;
+  }
+   
+  form {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  
+  footer {
+    background-color: #ccc;
+    color: #333;
+    padding: 10px 20px;
+    text-align: center;
+  }
+/* Style main content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+main h1, h2 {
+    margin-top: 0;
+}
+
+main ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+main li {
+    margin-bottom: 20px;
+}
+
+main li p:first-child {
+    margin-top: 0; 
+}
+
+main li p:last-child {
+    margin-bottom: 0;
+}
+
+main label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+main input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main input[type="submit"]:hover {
+    background-color: #555;
+}
+
+main select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+main textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+

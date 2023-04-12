@@ -23,7 +23,7 @@ if(!isset($_SESSION['zalogowany'])){
           <li><a href="kalkulator.php" target="_self">Ip kalkulator</a></li>
           <li><a href="teoria.php" target="_self">Teoria</a></li>
           <li><a href="#" target="_self">Egzamin</a></li>
-          <li><a href="#" target="_self">Q&A</a></li>
+          <li><a href="Q&A.php" target="_self">Q&A</a></li>
           <li><a href="#" target="_self">Admin</a></li>
         </ul>
       </nav>

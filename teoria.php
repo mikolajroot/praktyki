@@ -25,7 +25,14 @@ if(!isset($_SESSION['zalogowany'])){
       </nav>
       <div class="user-actions">
       <?php
-          echo "<p>Witaj ". $_SESSION['user']." !</p>"
+                    if (isset($_SESSION['admin']) && $_SESSION['admin']==true) {
+                      echo "<p>ADMIN</p>";
+                      echo "<p><a href='logout.php'>Wyloguj się</a></p>";
+                    }
+                    else {
+                      echo "<p>Witaj ". $_SESSION['user']." ! </p>";
+                    echo "<p><a href='logout.php'>Wyloguj się</a></p>";
+                    }
         ?>
       </div>
     </header>
