@@ -1,10 +1,9 @@
-/* index.html */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
-h1 a {
+header h1 a {
   text-decoration: none;
   color: #fff;
 }
@@ -94,53 +93,76 @@ nav ul li a:focus::before {
   animation: fadein 1s;
 }
 
-main {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-
 form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-label {
-  margin-bottom: 10px;
-}
-
-input[type="text"] {
-  padding: 5px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-}
-
-input[type="button"] {
-  background-color: #333;
-  font-weight: bold;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-input[type="button"]:hover {
-  background-color: #fff;
-  color: #333;
-}
-
-p {
-  margin-top: 20px;
-  font-size: 16px;
-}
 footer {
   background-color: #ccc;
   color: #333;
   padding: 10px 20px;
   text-align: center;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+nav ul li {
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td a{
+background-color: #333;
+font-weight: bold;
+color: #fff;
+border: none;
+padding: 5px 10px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease-in-out;
+text-decoration: none;
+}
+td a:hover{
+  background-color: #fff;
+  color: #333;
+}
+
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #555;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 @media only screen and (max-width: 767px) {
   header {

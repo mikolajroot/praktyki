@@ -24,7 +24,11 @@ if(!isset($_SESSION['zalogowany'])){
           <li><a href="teoria.php" target="_self">Teoria</a></li>
           <li><a href="#" target="_self">Egzamin</a></li>
           <li><a href="Q&A.php" target="_self">Q&A</a></li>
-          <li><a href="#" target="_self">Admin</a></li>
+          <?php
+            if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) {
+              echo "<li><a href='admin.php' target='_self'>Admin</a></li>";
+            }
+          ?>
         </ul>
       </nav>
       <div class="user-actions">

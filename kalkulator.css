@@ -172,3 +172,41 @@ nav ul li {
   background: rgb(85, 85, 87);
   color: white;
 }
+@media only screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  nav ul li:last-child {
+    margin-bottom: 0;
+  }
+  .user-actions {
+    margin-top: 10px;
+  }
+  main {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 768px) {
+  header {
+    justify-content: space-between;
+  }
+  nav ul {
+    flex-direction: row;
+  }
+  nav ul li {
+    margin-right: 30px;
+    margin-bottom: 0;
+  }
+  .user-actions {
+    margin-top: 0;
+  }
+}

@@ -39,6 +39,7 @@ session_start();
       <input type="submit" value="zajerestruj się">
       <input type="reset" value="Reset" id="reset">
     </form>
+   
   </div>
   <script src="register.js"></script>
 </body>

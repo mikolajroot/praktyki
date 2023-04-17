@@ -4,6 +4,22 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
   }
+  nav ul li {
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   h1 a {
     text-decoration: none;
     color: #fff;
@@ -168,6 +184,43 @@ main textarea {
     border-radius: 5px;
     margin-bottom: 10px;
 }
-
+@media only screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  nav ul li:last-child {
+    margin-bottom: 0;
+  }
+  .user-actions {
+    margin-top: 10px;
+  }
+  main {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 768px) {
+  header {
+    justify-content: space-between;
+  }
+  nav ul {
+    flex-direction: row;
+  }
+  nav ul li {
+    margin-right: 30px;
+    margin-bottom: 0;
+  }
+  .user-actions {
+    margin-top: 0;
+  }
+}
 
 

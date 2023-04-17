@@ -23,24 +23,23 @@ if (!isset($_SESSION['zalogowany'])) {
     <h1><a href="main.php" target="_self">INF.02</a></h1>
     <nav>
       <ul>
-        <li><a href="kalkulator.php" target="_self">Ip calculator</a></li>
+        <li><a href="kalkulator.php" target="_self">Ip kalkulator</a></li>
       </ul>
     </nav>
     <div class="user-actions">
       <?php
-                if (isset($_SESSION['admin']) && $_SESSION['admin']==true) {
-                  echo "<p>ADMIN</p>";
-                  echo "<p><a href='logout.php'>Wyloguj się</a></p>";
-                }
-                else {
-                  echo "<p>Witaj ". $_SESSION['user']." ! </p>";
-                echo "<p><a href='logout.php'>Wyloguj się</a></p>";
-                }
+      if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) {
+        echo "<p>ADMIN</p>";
+        echo "<p><a href='logout.php'>Wyloguj się</a></p>";
+      } else {
+        echo "<p>Witaj " . $_SESSION['user'] . " ! </p>";
+        echo "<p><a href='logout.php'>Wyloguj się</a></p>";
+      }
       ?>
     </div>
   </header>
   <main>
-    <h1>IP Address calculator</h1>
+    <h1>IP Address Kalkulator</h1>
     <input type='text' class='addr' id='q1'> .
     <input type='text' class='addr' id='q2'> .
     <input type='text' class='addr' id='q3'> .
@@ -116,7 +115,7 @@ if (!isset($_SESSION['zalogowany'])) {
           ipBin[3] = String("00000000" + parseInt(q3, 10).toString(2)).slice(-8);
           ipBin[4] = String("00000000" + parseInt(q4, 10).toString(2)).slice(-8);
 
-          
+
           var standartClass = "";
           if (q1 <= 126) {
             standartClass = "A";
@@ -177,7 +176,7 @@ if (!isset($_SESSION['zalogowany'])) {
           //pętla do ułeżenia wszystkich stringó razem
           for (var i = 1; i <= 4; i++) {
             if (importantBlock > i) {
-              
+
               mask += "255";
               maskBinary += "11111111";
               netBinary += ipBin[i];
@@ -187,7 +186,7 @@ if (!isset($_SESSION['zalogowany'])) {
               rangeA += parseInt(ipBin[i], 2);
               rangeB += parseInt(ipBin[i], 2);
             } else if (importantBlock == i) {
-              
+
               mask += maskBlock;
               maskBinary += maskBinaryBlock;
               netBinary += netBlockBinary;
@@ -197,7 +196,7 @@ if (!isset($_SESSION['zalogowany'])) {
               rangeA += (parseInt(netBlockBinary, 2) + 1);
               rangeB += (parseInt(bcBlockBinary, 2) - 1);
             } else {
-              
+
               mask += 0;
               maskBinary += "00000000";
               netBinary += "00000000";
@@ -207,7 +206,7 @@ if (!isset($_SESSION['zalogowany'])) {
               rangeA += 0;
               rangeB += 255;
             }
-          
+
             if (i < 4) {
               mask += ".";
               maskBinary += ".";
@@ -230,7 +229,7 @@ if (!isset($_SESSION['zalogowany'])) {
           document.getElementById('resBinBC').innerHTML = bcBinary;
           document.getElementById('resClass').innerHTML = standartClass;
         } else {
-          alert("invalid value");
+          alert("Każdy oktet musi być liczbą z zakresu 0-255 oraz Maska musi być liczbą z zakresu 0-32");
         }
       }
     </script>
