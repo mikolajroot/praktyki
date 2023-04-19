@@ -57,18 +57,39 @@ if (!isset($_SESSION['zalogowany'])) {
                 <p><strong>Odpowiedź:</strong> Broadcast jest to rozsiewczy tryb transmisji danych polegający na wysyłaniu przez jeden port pakietów, które powinny być odebrane przez wszystkie pozostałe porty przyłączone do danej sieci.</p>
             </li>
         </ul>
-
+        
         <h2>Panel administratora</h2>
         <form method="post" action="dodaj_odpowiedz.php">
             <label for="pytanie_id">Wybierz pytanie:</label>
             <select id="pytanie_id" name="pytanie_id">
-                <option value="1">Ile unikalnych hostów ma klasa sieci C</option>
-                <option value="2">Co to broadcast</option>
+                <?php
+                $conn = mysqli_connect('localhost', 'root', '', 'inf');
+
+                // Check for errors
+                if (mysqli_connect_errno()) {
+                    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                    exit();
+                }
+
+                // Query all users
+                $sql = "SELECT * FROM questions";
+                $result = mysqli_query($conn, $sql);
+
+                // Display users in a table
+                while ($row = mysqli_fetch_assoc($result)) {
+                    if ($row['username'] !== 'admin') {
+                        echo "<option value='" . $row['id'] . "'>" . $row['question'] . "</option>";
+                    }
+                }
+                ?>
             </select><br>
             <label for="odpowiedz">Dodaj odpowiedź:</label>
             <textarea id="odpowiedz" name="odpowiedz"></textarea><br>
             <input type="submit" value="Dodaj odpowiedź">
         </form>
+
+
+
     </main>
     <footer>
         <p>Copyright © 2023</p>

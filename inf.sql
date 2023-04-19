@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 12 Kwi 2023, 18:59
+-- Czas generowania: 19 Kwi 2023, 22:17
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.0.13
 
@@ -24,6 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `answers`
+--
+
+CREATE TABLE `answers` (
+  `id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `answer` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `questions`
+--
+
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
+  `question` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `questions`
+--
+
+INSERT INTO `questions` (`id`, `question`) VALUES
+(1, 'jak długo trwa egzamin'),
+(3, 'ile procent jest potrzebne do zdania teorii');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `users`
 --
 
@@ -38,13 +69,27 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `pass`) VALUES
-(1, 'torfox', 'lol'),
 (2, 'admin', 'admin'),
-(3, 'miki', 'miki');
+(3, 'miki', 'miki'),
+(4, 'polska', 'polska'),
+(5, 'praktyki', 'praktyki');
 
 --
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `answers`
+--
+ALTER TABLE `answers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_question_id` (`question_id`);
+
+--
+-- Indeksy dla tabeli `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `users`
@@ -57,10 +102,32 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `answers`
+--
+ALTER TABLE `answers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `answers`
+--
+ALTER TABLE `answers`
+  ADD CONSTRAINT `fk_question_id` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
