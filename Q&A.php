@@ -48,46 +48,63 @@ if (!isset($_SESSION['zalogowany'])) {
 
         <h2>Zadane pytania i odpowiedzi</h2>
         <ul>
-            <li>
-                <p><strong>Pytanie:</strong> Ile unikalnych hostów ma klasa sieci C</p>
-                <p><strong>Odpowiedź:</strong> Ma ona 254 unikalnych hostów</p>
-            </li>
-            <li>
-                <p><strong>Pytanie:</strong> Co to broadcast</p>
-                <p><strong>Odpowiedź:</strong> Broadcast jest to rozsiewczy tryb transmisji danych polegający na wysyłaniu przez jeden port pakietów, które powinny być odebrane przez wszystkie pozostałe porty przyłączone do danej sieci.</p>
-            </li>
+            <?php
+            $conn = mysqli_connect('localhost', 'root', '', 'inf');
+
+            // Check for errors
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                exit();
+            }
+
+            // Query all users
+            $sql = "SELECT questions.question, answers.answer
+                FROM questions
+                JOIN answers ON questions.id = answers.question_id";
+            $result = mysqli_query($conn, $sql);
+
+            // Display users in a table
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<li>";
+                echo "<p><strong>Pytanie:</strong> " . $row['question'] . "</p>";
+                echo "<p><strong>Odpowiedź:</strong>" . $row['answer'] . "</p>";
+                echo "</li>";
+            }
+
+            ?>
+
         </ul>
-        
-        <h2>Panel administratora</h2>
-        <form method="post" action="dodaj_odpowiedz.php">
-            <label for="pytanie_id">Wybierz pytanie:</label>
-            <select id="pytanie_id" name="pytanie_id">
-                <?php
-                $conn = mysqli_connect('localhost', 'root', '', 'inf');
+        <?php
+        if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) {
+            echo "<h2>Panel administratora</h2>";
+            echo "<form method='post' action='dodaj_odpowiedz.php'>";
+            echo "<label for='pytanie_id'>Wybierz pytanie:</label>";
+            echo "<select id='pytanie_id' name='pytanie_id'>";
+            $conn = mysqli_connect('localhost', 'root', '', 'inf');
 
-                // Check for errors
-                if (mysqli_connect_errno()) {
-                    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                    exit();
+            // Check for errors
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                exit();
+            }
+
+            // Query all users
+            $sql = "SELECT * FROM questions";
+            $result = mysqli_query($conn, $sql);
+
+            // Display users in a table
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row['username'] !== 'admin') {
+                    echo "<option value='" . $row['id'] . "'>" . $row['question'] . "</option>";
                 }
-
-                // Query all users
-                $sql = "SELECT * FROM questions";
-                $result = mysqli_query($conn, $sql);
-
-                // Display users in a table
-                while ($row = mysqli_fetch_assoc($result)) {
-                    if ($row['username'] !== 'admin') {
-                        echo "<option value='" . $row['id'] . "'>" . $row['question'] . "</option>";
-                    }
-                }
-                ?>
-            </select><br>
-            <label for="odpowiedz">Dodaj odpowiedź:</label>
-            <textarea id="odpowiedz" name="odpowiedz"></textarea><br>
-            <input type="submit" value="Dodaj odpowiedź">
-        </form>
-
+            }
+            echo "</select><br>";
+            echo "<label for='odpowiedz'>Dodaj odpowiedź:</label>";
+            echo "<textarea id='odpowiedz' name='odpowiedz'></textarea><br>";
+            echo "<input type='submit' value='Dodaj odpowiedź'>";
+            echo "</form>";
+        }
+        ?>
 
 
     </main>
